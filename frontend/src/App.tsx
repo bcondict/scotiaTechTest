@@ -4,13 +4,21 @@ import products from "../Products.json";
 function App() {
   return (
     <>
-      <h1>Data from JSON:</h1>
       <nav className="navbar">
-        <input type="text" />
-        <button>Todos</button>
-        <button>Cuentas</button>
-        <button>Tarjetas</button>
-        <button>Cr&eacute;dito</button>
+        <div className="navbar-div">
+          <input
+            type="text"
+            id="Search"
+            className="navbar__input"
+            placeholder={"Buscar productos"}
+          />
+        </div>
+        <div className="navbar-div">
+          <button className="navbar__btn selected">Todos</button>
+          <button className="navbar__btn">Cuentas</button>
+          <button className="navbar__btn">Tarjetas</button>
+          <button className="navbar__btn">Cr&eacute;dito</button>
+        </div>
       </nav>
 
       <ul className="organizer">

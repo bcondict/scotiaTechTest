@@ -5,13 +5,46 @@ body {
   align-items: center;
   height: 100vh;
   --primary-color: #7249e5;
+  --primary-bg-color: #182343;
 }
 
+/* navbar */
 .navbar {
-  background: var(--primary-color);
+  display: flex;
+  background: var(--primary-bg-color);
   padding: 1rem 2rem;
+  gap: 1rem;
+  border-radius: 0.5rem;
 }
 
+.navbar-div {
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-block: 1rem;
+}
+
+.navbar__input {
+  width: calc(100% - 1rem);
+  padding: 0.5rem 1rem;
+  outline: none;
+  border-radius: 1rem;
+  border: none;
+}
+
+.navbar__btn {
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: none;
+  border-radius: 1rem;
+  background: none;
+  color: white;
+}
+.navbar__btn.selected {
+  background: var(--primary-color);
+}
+
+/* body */
 .organizer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
