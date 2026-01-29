@@ -17,6 +17,10 @@ Características Principales
 
 🛠️ TypeScript - Tipado estático para mayor robustez
 
+## Previsualización
+
+![Web Page Preview](./Images/Captura de pantalla 2026-01-29 051847.png)
+
 ## Estructura de Carpetas
 
 ```text
