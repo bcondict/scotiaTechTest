@@ -19,7 +19,7 @@ Características Principales
 
 ## Previsualización
 
-![Web Page Preview](./Images/Captura de pantalla 2026-01-29 051847.png)
+![Web Page Preview](Images/Captura de pantalla 2026-01-29 051847.png)
 
 ## Estructura de Carpetas
 
