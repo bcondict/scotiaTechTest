@@ -1,73 +1,80 @@
-# React + TypeScript + Vite
+# Scotia Tech
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
 
-Currently, two official plugins are available:
+Aplicación React desarrollada con Vite como herramienta de construcción. Esta es una SPA creada basada en la base de datos [Products.json](./Products.json)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Características Principales
+⚡ Vite - Herramienta de construcción rápida
 
-## React Compiler
+⚛️ React 18 - Biblioteca principal de UI
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🎨 CSS moderno - Estilos con capacidades CSS nativo o preprocesadores
 
-## Expanding the ESLint configuration
+🔧 Configuración mínima - Sin configuración compleja inicial
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+📦 Optimización de producción - Build optimizado automáticamente
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+🛠️ TypeScript - Tipado estático para mayor robustez
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Estructura de Carpetas
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+my-react-app/
+├── public/              # Archivos estáticos
+│   └── icons/           # iconos usados en la aplicación
+├── src/                 # Código fuente de la aplicación
+│   ├── api/             # encargado de hacer la petición al archivo de base de datos
+│   │   └── products.Api.ts
+│   ├── components/      # Componentes React reutilizables
+│   ├── hooks/           # Custom Hooks personalizados
+│   ├── image/           # Carpeta de requerimientos
+│   │   └── icons/
+│   ├── types/           # carpeta de typos usados durante la aplicación
+│   ├── App.jsx          # Componente principal de la aplicación
+│   ├── App.css          # Estilos del componente App
+│   ├── main.tsx         # Punto de entrada principal
+│   └── index.css        # Estilos base/reset
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Prerrequisitos
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Node.js 14.18+ o 16+
+- npm 6+ o yarn 1.22+ o pnpm 6+
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Descarga e Instalación
+
+Clonar repositorio existente
+
+```bash
+# Clonar el repositorio
+git clone <url-del-repositorio>
+cd nombre-del-proyecto
+
+# Instalar dependencias
+npm install
+# o
+yarn install
+# o
+pnpm install
+```
+
+### Para Usar
+
+```bash
+npm run dev
+```
+
+El servidor de desarrollo se iniciará en `http://localhost:5173` por defecto.
+
+### Construcción
+
+```bash
+# Construir para producción
+npm run build
+# o
+yarn build
+# o
+pnpm build
+Los archivos de producción se generarán en la carpeta dist/.
 ```

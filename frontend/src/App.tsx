@@ -1,52 +1,37 @@
 import "./App.css";
-import products from "../Products.json";
+import type { IProduct } from "./types/product.types";
+import { Product } from "./components/product";
+import { Navbar } from "./components/navbar";
+import { useCartStorage } from "./hooks/useCarStorage";
+import { useProduct } from "./hooks/useProducts";
+import { useState } from "react";
 
 function App() {
+  const { cart, addToCart, removeFromCart, total, count } = useCartStorage();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [category, setCategory] = useState("Todos");
+
+  const { filteredProducts, loading } = useProduct(searchTerm, category);
+
+  if (loading) {
+    return <div className="loading">Cargando productos</div>;
+  }
+
   return (
     <>
-      <nav className="navbar">
-        <div className="navbar-div">
-          <input
-            type="text"
-            id="Search"
-            className="navbar__input"
-            placeholder={"Buscar productos"}
-          />
-        </div>
-        <div className="navbar-div">
-          <button className="navbar__btn selected">Todos</button>
-          <button className="navbar__btn">Cuentas</button>
-          <button className="navbar__btn">Tarjetas</button>
-          <button className="navbar__btn">Cr&eacute;dito</button>
-        </div>
-      </nav>
+      <Navbar
+        total={total}
+        count={count}
+        removeFromCart={removeFromCart}
+        cart={cart}
+        setSearchTerm={setSearchTerm}
+        setCategory={setCategory}
+      />
 
       <ul className="organizer">
-        {products.map((product) => {
-          const price = new Intl.NumberFormat("en-US", {
-            style: "currency",
-            currency: "USD",
-          }).format(product.price);
-
-          return (
-            <li className="product" key={product.id}>
-              <img
-                src={product.image}
-                alt={"Image of account"}
-                className="product__img"
-              />
-              <div className="product--div">
-                <p className="product__tittle">{product.title}</p>
-                <p className="product__price">{price}</p>
-                <div className="btn-container">
-                  <button className="product__add-car-button">
-                    Agregar al Carrito
-                  </button>
-                </div>
-              </div>
-            </li>
-          );
-        })}
+        {filteredProducts.map((product: IProduct) => (
+          <Product key={product.id} product={product} addToCart={addToCart} />
+        ))}
       </ul>
     </>
   );

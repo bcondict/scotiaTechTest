@@ -4,8 +4,20 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100vw;
   --primary-color: #7249e5;
   --primary-bg-color: #182343;
+}
+
+#root {
+  width: 50%;
+}
+.top {
+  width: 100%;
+  position: relative;
+}
+.loadgin {
+  text-align: center;
 }
 
 /* navbar */
@@ -39,13 +51,21 @@ body {
   border-radius: 1rem;
   background: none;
   color: white;
+  cursor: pointer;
 }
 .navbar__btn.selected {
   background: var(--primary-color);
 }
 
+.navbar__btn__cart {
+  background-image: url("./image/icons/shop_cart.svg");
+  background-repeat: no-repeat;
+}
+
 /* body */
+
 .organizer {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
@@ -91,4 +111,90 @@ body {
   border-radius: 1rem;
   margin-left: auto;
   cursor: pointer;
+}
+
+/* cart content */
+.navbar-article {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: var(--primary-bg-color);
+  right: 0;
+
+  opacity: 97%;
+
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem 1.5rem;
+  color: white;
+  width: 17rem;
+}
+.navbar-article.hidden {
+  display: none;
+}
+
+.cart-content__text {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+.cart-content--products {
+  margin-left: 0;
+  list-style: none;
+  padding-left: 0;
+}
+
+.cart-content--amount {
+  background: #1b2848;
+  text-align: center;
+  border-radius: 1rem;
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 0.5rem;
+}
+.cart-content--cost {
+  font-size: 18px;
+  text-align: center;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--primary-color);
+}
+
+.cart-item {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(6, 1fr);
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid lightgray;
+}
+.cart-item__img {
+  background: lightgrey;
+  padding: 0.5rem;
+  height: fit-content;
+  border-radius: 0.5rem;
+  justify-self: flex-start;
+}
+.cart-item__div {
+  grid-column: 2 / 6;
+}
+.cart-item__text {
+  margin: 0;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+}
+.cart-item__btn {
+  justify-self: flex-end;
+  background-image: url("./image/icons/close.svg");
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--primary-color);
 }
